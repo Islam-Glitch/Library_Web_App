@@ -1,0 +1,127 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quirky Quill</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static '/image/NewOfficialLogo.png' %}"
+    />
+    <link rel="stylesheet" href="{% static '/css/Style.css' %}" />
+  </head>
+  <body>
+    
+    <nav id="navigation">
+      <a href="index.html"><img src="{% static '/image/NewOfficialLogo.png' %}" alt="Logo"></a>
+      <a href="index.html">Home</a>
+      <a href="categories.html">categories</a>
+      <a href="Borrow_book.html">borrow</a>
+      <a href="Login.html">login</a>
+      <a href="Signup.html">Signup</a>
+    </nav>
+    <br />
+    <form id="form" role="form" action="#" method="POST">
+      {% csrf_token %}
+      <div>
+        <label for="fullname">Full Name</label>
+        <input
+          type="text"
+          name="fullname"
+          placeholder="Fullname"
+          required
+          id="fullname"
+          oninput="validateFullNameInput()"
+        />
+        <span id="fullname-error" class="error"></span>
+      </div>
+      <br />
+
+      <div>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+          id="username"
+          oninput="validateUsernameInput()"
+        />
+        <span id="username-error" class="error"></span>
+      </div>
+      <br />
+
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          id="email"
+          oninput="validateEmailInput()"
+        />
+        <br/>
+        <span>{{message}}</span>
+        <span id="email-error" class="error"></span>
+      </div>
+      <br />
+
+      <div>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          id="password"
+          oninput="validatePasswordInput()"
+        />
+        <span id="password-error" class="error"></span>
+      </div>
+      <br />
+
+      <div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm password"
+          required
+          id="confirmPassword"
+          oninput="validateConfirmPasswordInput()"
+        />
+        <span id="confirmPassword-error" class="error"></span>
+      </div>
+   
+      <br />
+
+      <div>
+        <button
+          type="submit"
+          id="submit-button"
+          onclick="handleSignupFormSubmission()"
+        >
+          Submit
+        </button>
+        <button type="button" onclick="resetForm()">Reset</button>
+      </div>
+      <br />
+
+      <center>
+        <span>{{message_success}}</span>
+        <br/>
+        <label><a href="Login.html">Already have an account?</a></label>
+      </center>
+    </form>
+
+    <!-- Include script.js here -->
+    <script src="{% static '/js/script.js' %}"></script>
+    <script>
+      // Call updateNavBar when the page loads
+      document.addEventListener("DOMContentLoaded", updateNavBar);
+    </script>
+  </body>
+</html>

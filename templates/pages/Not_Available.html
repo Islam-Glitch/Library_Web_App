@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quirky Quill</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static '/image/NewOfficialLogo.png' %}"
+    />
+    <link rel="stylesheet" href="{% static '/css/Style.css' %}" />
+  </head>
+  <body>
+    <!--Navigation Bar-->
+    <nav id="navigation">
+      <a href="index.html"><img src="{% static '/image/NewOfficialLogo.png' %}" alt="Logo"></a>
+      <a href="index.html">Home</a>
+      <a href="categories.html">categories</a>
+      <a href="Borrow_book.html">borrow</a>
+      <a href="Login.html">login</a>
+      <a href="Signup.html">Signup</a>
+    </nav>
+    <!--Navigation Bar-->
+    
+    <br />
+    <!--Search Bar-->
+    <SearchBar>
+      <input
+        type="text"
+        name="Search"
+        id="search-bar"
+        placeholder="Search Books"
+      />
+      <button type="submit">Search</button>
+    </SearchBar>
+    <!--Search Bar-->
+    <section><h3>This book is not available</h3></section>
+  </body>
+</html>
